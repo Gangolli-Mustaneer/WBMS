@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WBMS - Web Based Malware Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="cyber-background"></div>
+    
+    <div class="container">
+        <header>
+            <div class="theme-toggle">
+                <button id="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>WBMS</h1>
+            </div>
+            <p class="subtitle">Advanced Malware Detection System</p>
+        </header>
+
+        <div class="scan-options">
+            <div class="option-card" data-target="file">
+                <div class="card-content">
+                    <i class="fas fa-file-upload"></i>
+                    <h3>File Scan</h3>
+                    <p>Upload and scan files for malware</p>
+                </div>
+            </div>
+            <div class="option-card" data-target="url">
+                <div class="card-content">
+                    <i class="fas fa-globe"></i>
+                    <h3>URL Scan</h3>
+                    <p>Check URLs for potential threats</p>
+                </div>
+            </div>
+            <div class="option-card" data-target="hash">
+                <div class="card-content">
+                    <i class="fas fa-fingerprint"></i>
+                    <h3>Hash Scan</h3>
+                    <p>Verify file hashes against database</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="scan-section" data-type="file">
+            <div class="section-header">
+                <h2><i class="fas fa-file-upload"></i> File Scan</h2>
+                <p>Upload a file to scan for malware</p>
+            </div>
+            <div class="upload-container">
+                <div class="upload-area" id="drop-zone">
+                    <input type="file" id="file-input" accept=".exe,.dll,.pdf,.doc,.docx,.xls,.xlsx,.zip,.rar,.7z,.txt,.js,.py,.php" hidden>
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & Drop your file here</p>
+                        <p class="upload-hint">or click to browse</p>
+                        <p class="file-types">Supported formats: EXE, DLL, PDF, DOC, XLS, ZIP, RAR, 7Z, TXT, JS, PY, PHP</p>
+                    </div>
+                </div>
+                <button class="scan-button" id="file-scan-button" disabled>
+                    <i class="fas fa-search"></i>
+                    Scan File
+                </button>
+            </div>
+            <div class="result-container" data-type="file"></div>
+        </div>
+
+        <div class="scan-section" data-type="url">
+            <div class="section-header">
+                <h2><i class="fas fa-globe"></i> URL Scan</h2>
+                <p>Enter a URL to check for potential threats</p>
+            </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <input type="url" id="url-input" placeholder="Enter URL (e.g., https://example.com)">
+                    <button class="scan-button" id="url-scan-button">
+                        <i class="fas fa-search"></i>
+                        Scan URL
+                    </button>
+                </div>
+            </div>
+            <div class="result-container" data-type="url"></div>
+        </div>
+
+        <div class="scan-section" data-type="hash">
+            <div class="section-header">
+                <h2><i class="fas fa-fingerprint"></i> Hash Scan</h2>
+                <p>Enter a SHA-256 hash to check against our database</p>
+            </div>
+            <div class="input-container">
+                <div class="input-group">
+                    <input type="text" id="hash-input" placeholder="Enter SHA-256 hash">
+                    <button class="scan-button" id="hash-scan-button">
+                        <i class="fas fa-search"></i>
+                        Scan Hash
+                    </button>
+                </div>
+            </div>
+            <div class="result-container" data-type="hash"></div>
+        </div>
+    </div>
+
+    <div class="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <div class="loader-text">Scanning...</div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification" style="display: none;"></div>
+
+    <div id="malware-type-box" class="malware-types" style="display: none;">
+        <h4>Detected Malware Types</h4>
+        <ul id="malware-type-list"></ul>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
