@@ -1,4 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Footer quick links functionality
+    const footerLinks = document.querySelectorAll('.footer-section a[data-target]');
+    footerLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = link.getAttribute('data-target');
+            showSection(target);
+            
+            // Scroll to the section
+            const section = document.querySelector(`.scan-section[data-type="${target}"]`);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
     // Theme switching functionality
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     
