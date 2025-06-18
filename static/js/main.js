@@ -195,8 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
     async function handleFileUpload(file) {
         if (!file) return;
         
-        // Check file size (16MB limit)
-        if (file.size > 16 * 1024 * 1024) {
+        // Check file size (10MB limit)
+        if (file.size > 10 * 1024 * 1024) {
             showNotification('File size exceeds 16MB limit', 'error');
             return;
         }
