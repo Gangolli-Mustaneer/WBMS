@@ -1,6 +1,6 @@
-# Malware Scanner
+# WBMS (Web-Based Malware Scanner)
 
-A web-based malware scanning application that provides file scanning, URL scanning, and hash scanning capabilities. Built with Flask, YARA rules, and Google Safe Browsing API.
+A WBMS (web-based malware scanner) is a web application that provides file scanning, URL scanning, and hash scanning capabilities. Built with Flask, YARA rules, and Google Safe Browsing API.
 
 ## Features
 
@@ -86,6 +86,3 @@ WBMS/
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details. 
