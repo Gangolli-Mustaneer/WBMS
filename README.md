@@ -23,7 +23,7 @@ A web-based malware scanning application that provides file scanning, URL scanni
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd malware-scanner
+cd WBMS
 ```
 
 2. Create a virtual environment and activate it:
@@ -59,7 +59,7 @@ python app.py
 ## Project Structure
 
 ```
-malware-scanner/
+WBMS/
 ├── app.py              # Flask application
 ├── requirements.txt    # Python dependencies
 ├── rules/             # YARA rules directory
@@ -69,8 +69,10 @@ malware-scanner/
 │   │   └── style.css
 │   └── js/
 │       └── main.js
-└── templates/         # HTML templates
-    └── index.html
+├── templates/         # HTML templates
+│    └── index.html
+├── uploads
+├── .env              # API key file
 ```
 
 ## Security Considerations
