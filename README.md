@@ -71,7 +71,7 @@ WBMS/
 │       └── main.js
 ├── templates/         # HTML templates
 │    └── index.html
-├── uploads
+├── uploads           # Temprary File Storage
 ├── .env              # API key file
 ```
 
